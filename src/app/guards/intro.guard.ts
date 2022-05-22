@@ -5,16 +5,15 @@ import { Observable } from 'rxjs';
 export const INTRO_KEY ='intro-seen';
 
 
-import { Plugins } from '@capacitor/core';
-const {Storage} = Plugins
+import { Storage } from '@capacitor/storage';
 @Injectable({
   providedIn: 'root'
 })
 export class IntroGuard implements CanLoad {
   constructor(private router : Router){}
   async canLoad(): Promise<boolean> {
-   //const hasSeenIntro = await Storage.get({key: INTRO_KEY});
-   const hasSeenIntro =await Storage.set({key: INTRO_KEY,value:'true'});
+   const hasSeenIntro = await Storage.get({key: INTRO_KEY});
+   //const hasSeenIntro =await Storage.set({key: INTRO_KEY,value:'true'});
 
     if(hasSeenIntro && (hasSeenIntro.value === 'true')){
       return true

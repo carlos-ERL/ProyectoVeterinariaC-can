@@ -1,5 +1,7 @@
 {
   "name": "VeterinariaC-can",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "angular"
 }
