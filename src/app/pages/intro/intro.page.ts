@@ -2,8 +2,9 @@ import { Route, Router } from '@angular/router';
 import { INTRO_KEY } from './../../guards/intro.guard';
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { IonSlides } from '@ionic/angular';
-import { Plugins } from '@capacitor/core';
-const {Storage} = Plugins
+//import { Plugins } from '@capacitor/core';
+//const {Storage} = Plugins
+import { Storage } from '@capacitor/storage';
 
 
 @Component({
