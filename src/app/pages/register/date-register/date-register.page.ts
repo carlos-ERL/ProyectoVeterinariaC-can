@@ -12,7 +12,7 @@ import { MenuController, NavController, ToastController } from '@ionic/angular';
 export class DateRegisterPage implements OnInit {
   public myForm:FormGroup;
   public quote:Quote;
-
+  public currentDate=new Date();
   constructor(
     private dateService:DateService, 
     private fb:FormBuilder,
@@ -20,14 +20,16 @@ export class DateRegisterPage implements OnInit {
   ) { }
 
   ngOnInit() {
+
     this.myForm= this.fb.group({
 
-            idDoctor:[""],
-            idUser:[""],
+            idDoctor:[""],  
+            idUser:[""],    
             description:[""],
-            creationDateQuote:[new Date()],
+            creationDateQuote:[ this.currentDate.getDate()+'-'+(this.currentDate.getMonth()+1)+'-'+this.currentDate.getFullYear()],
             status:[""],
             petName:[""],
+            photo:[""],
             color:[""],
             weight:[0],
             race:[""],
@@ -37,13 +39,14 @@ export class DateRegisterPage implements OnInit {
   }
 
   createDate(){
+    this.currentDate=new Date();
     this.quote={
-      idDoctor:'',
-      idUser:'',
+      idDoctor:'1',  //AQUI SE DEBE PONER EL DOCTOR QUE ESTE AGENDANDO LA CITA
+      idUser:'1',    //AQUI EL USUARIO QUE GENERÓ LA CITA
       description:this.myForm.controls.description.value,
-      creationDateQuote:this.myForm.controls.creationDateQuote.value,
-      dateQuote:this.myForm.controls.dateQuote.value,
+      creationDateQuote:this.currentDate.getDate()+'-'+(this.currentDate.getMonth()+1)+'-'+this.currentDate.getFullYear(),
       status:'En espera',
+      photo:this.myForm.controls.photo.value,
       petName:this.myForm.controls.petName.value,
       color:this.myForm.controls.color.value,
       weight:this.myForm.controls.weight.value,
@@ -51,7 +54,8 @@ export class DateRegisterPage implements OnInit {
       particularSign:this.myForm.controls.particularSign.value,
       size:this.myForm.controls.size.value
     }
-    this.dateService.createDate(this.quote);
+    this.dateService.createQuote(this.quote);
+    console.log(this.quote);
   }
 
 }

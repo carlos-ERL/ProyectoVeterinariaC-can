@@ -3,10 +3,11 @@ export class Quote {
     idDoctor:string;
     idUser:string;
     description:string;
-    creationDateQuote:Date;
-    dateQuote?:Date;
+    creationDateQuote:string;
+    dateQuote?:string;
     status:string;
     petName:string;
+    photo:string;
     color:string;
     weight:number;
     race:string;

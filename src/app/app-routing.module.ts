@@ -36,7 +36,11 @@ const routes: Routes = [
   {
     path: 'date-register',
     loadChildren: () => import('./pages/register/date-register/date-register.module').then( m => m.DateRegisterPageModule)
+  },  {
+    path: 'date-schedule',
+    loadChildren: () => import('./pages/date-schedule/date-schedule.module').then( m => m.DateSchedulePageModule)
   }
+
 
 
 ];
