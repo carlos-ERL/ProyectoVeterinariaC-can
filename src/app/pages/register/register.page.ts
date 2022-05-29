@@ -6,7 +6,7 @@ import { MenuController, NavController, ToastController } from '@ionic/angular';
 
 @Component({
   selector: 'app-register',
-  templateUrl: './register.page.html',
+  templateUrl: './register.page.html', 
   styleUrls: ['./register.page.scss'],
 })
 export class RegisterPage implements OnInit {
@@ -24,13 +24,7 @@ export class RegisterPage implements OnInit {
       lastname:[""],
       name:[""],
       email:[""],
-      Password:[""],
-      petName:[""],
-      color:[""],
-      weight:[0],
-      race:[""],
-      particularSign:[""],
-      size:[""]
+      Password:[""]
     });
   }
 
@@ -39,16 +33,9 @@ export class RegisterPage implements OnInit {
       lastname:this.myForm.controls.lastname.value,
       name:this.myForm.controls.name.value,
       email:this.myForm.controls.email.value,
-      Password:this.myForm.controls.Password.value,
-      petName:this.myForm.controls.petName.value,
-      color:this.myForm.controls.color.value,
-      weight:this.myForm.controls.weight.value,
-      race:this.myForm.controls.race.value,
-      particularSign:this.myForm.controls.particularSign.value,
-      size:this.myForm.controls.size.value
+      Password:this.myForm.controls.Password.value
     }
     this.userService.createUser(this.user);
-
   }
 
 }

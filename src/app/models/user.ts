@@ -4,10 +4,5 @@ export class User {
     name:string;
     email:string;
     Password:string;
-    petName:string;
-    color:string;
-    weight:number;
-    race:string;
-    particularSign:string;
-    size:string;
+   
 }

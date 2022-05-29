@@ -24,11 +24,19 @@ const routes: Routes = [
   path: '',
   redirectTo:'/login',
   pathMatch:'full'
-  },  {
+  },
+  {
     path: 'register',
     loadChildren: () => import('./pages/register/register.module').then( m => m.RegisterPageModule)
+  },
+  {
+    path: 'waitlist',
+    loadChildren: () => import('./pages/waitlist/waitlist.module').then( m => m.WaitlistPageModule)
+  },
+  {
+    path: 'date-register',
+    loadChildren: () => import('./pages/register/date-register/date-register.module').then( m => m.DateRegisterPageModule)
   }
-
 
 
 ];

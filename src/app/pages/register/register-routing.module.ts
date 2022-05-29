@@ -7,7 +7,11 @@ const routes: Routes = [
   {
     path: '',
     component: RegisterPage
+  },  {
+    path: 'date-register',
+    loadChildren: () => import('./date-register/date-register.module').then( m => m.DateRegisterPageModule)
   }
+
 ];
 
 @NgModule({
