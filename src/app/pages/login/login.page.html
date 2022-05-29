@@ -1,9 +1,36 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>login</ion-title>
-  </ion-toolbar>
-</ion-header>
+<ion-header [translucent]="true"> </ion-header>
 
-<ion-content>
+<ion-content [fullscreen]="true" >
+    <ion-grid fixed>
+        <ion-row class="ion-justify-content-center">
+            <img src="assets/icon/login/login-logo.png" id="img-logo" />
+        </ion-row>
+        <ion-row class="ion-justify-content-center">
+            <ion-button expand="block" color="medium">Echar un vistazo a los productos</ion-button>
+        </ion-row>
+        <form [formGroup]="Sesion">
+            <ion-card>
+                <ion-label>Correo electrónico</ion-label>
+                <ion-input type="text" formControlName="email" placeholder="Ingrese aquí su correo electrónico" class="placeholder"></ion-input>
+                <p></p>
+                <ion-label>Contraseña</ion-label>
+                <ion-input type="password" formControlName="password" placeholder="Ingrese aquí su contraseña" class="placeholder"></ion-input>
 
+                <ion-button expand="block" class="login" >Iniciar sesión</ion-button>
+                <p></p>
+                <ion-button expand="block" color="light" (click)="toRegister()">Registrarse</ion-button>
+                <p></p>
+                
+
+                <p></p>
+                <ion-row class="ion-justify-content-center">
+                    <a routerLink="/restore-password">Olvidé mi Contraseña</a>
+                </ion-row>
+                <p></p>
+                <ion-row class="ion-justify-content-center">
+                    <a href="http://delgolfoalpacificoespecialistasenalimentos.com" style="color: #4e4c67;">Políticas de Privacidad</a>
+                </ion-row>
+            </ion-card>
+        </form>
+    </ion-grid>
 </ion-content>

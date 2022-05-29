@@ -1,0 +1,60 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>register</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid>
+  
+    <ion-row>
+      <form [formGroup]="myForm">
+        <ion-item>
+          <ion-label position="floating">lastname <ion-text color="danger">*</ion-text></ion-label>
+          <ion-input required formControlName="lastname" type="text"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label position="floating">name <ion-text color="danger">*</ion-text></ion-label>
+          <ion-input required formControlName="name" type="text"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label position="floating">email <ion-text color="danger">*</ion-text></ion-label>
+          <ion-input required formControlName="email" type="text"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label position="floating">Password <ion-text color="danger">*</ion-text></ion-label>
+          <ion-input required formControlName="Password" type="text"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label position="floating">petName <ion-text color="danger">*</ion-text></ion-label>
+          <ion-input required formControlName="petName" type="text"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label position="floating">color <ion-text color="danger">*</ion-text></ion-label>
+          <ion-input required formControlName="color" type="text"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label position="floating">weight <ion-text color="danger">*</ion-text></ion-label>
+          <ion-input required formControlName="weight" type="number"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label position="floating">race <ion-text color="danger">*</ion-text></ion-label>
+          <ion-input required formControlName="race" type="text"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label position="floating">particularSign <ion-text color="danger">*</ion-text></ion-label>
+          <ion-input required formControlName="particularSign" type="text"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label position="floating">size <ion-text color="danger">*</ion-text></ion-label>
+          <ion-input required formControlName="size" type="text"></ion-input>
+        </ion-item>
+     
+        <ion-button block color="primary" type="submit" [disabled]="myForm.invalid" (click)="createUser()">
+          Registrarse
+        </ion-button>
+
+      </form>
+    </ion-row>
+  </ion-grid>
+</ion-content>
