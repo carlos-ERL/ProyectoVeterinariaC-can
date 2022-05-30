@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, NavigationExtras, Router } from '@angular/router';
 import { Quote } from 'src/app/models/quote';
 import { DateService } from 'src/app/services/date.service';
 
@@ -10,12 +11,11 @@ import { DateService } from 'src/app/services/date.service';
 export class WaitlistPage implements OnInit {
   quotes=[];
   dateFormated
-  constructor(private dateServices:DateService) { 
+  veterinarianID;
+  constructor(private dateServices:DateService,private activatedRoute: ActivatedRoute,private router:Router) { 
 
-    this.dateServices.getQuotes().subscribe( data=>{
+    this.dateServices.getQuotesInWaitList().subscribe( data=>{
        data.map(quote=>{
-
-        if(quote.payload.doc.get("status")=="En espera"){
           this.quotes.push( {
             id:quote.payload.doc.id,
             idDoctor:quote.payload.doc.get('idDoctor'),
@@ -32,9 +32,7 @@ export class WaitlistPage implements OnInit {
             particularSign:quote.payload.doc.get('particularSign'),
             size:quote.payload.doc.get('size')
           }as Quote);
-        }
 
-       
      })
          
    });
@@ -43,6 +41,20 @@ export class WaitlistPage implements OnInit {
 
   ngOnInit() {
 
+    this.activatedRoute.queryParams.subscribe((params) => {
+      this.veterinarianID = JSON.parse(params.special);
+      console.log(this.veterinarianID);
+    });
+
+  }
+
+  toDateSchedule(quoteId): void {
+    const extras: NavigationExtras = {
+      queryParams: {
+        special: JSON.stringify({veterianrianId:this.veterinarianID,quoteId:quoteId}),
+      },
+    };
+    this.router.navigate(['/date-schedule'], extras);
   }
 
 }

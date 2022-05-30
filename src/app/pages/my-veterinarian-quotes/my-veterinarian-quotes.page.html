@@ -1,0 +1,34 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>my-veterinarian-quotes</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <ion-list-header> Mis citas agendadas </ion-list-header>
+
+    <ion-item *ngFor="let quote of myQuotes">
+      <ion-avatar slot="start" style="width: 3pc; height:3pc;">
+        <img src="{{quote.photo}}" />
+      </ion-avatar>
+      <ion-label>
+      
+        <h1>{{quote.petName}}</h1>
+        <h2>
+          <strong>Fecha:</strong>
+           <ion-chip color="success">
+            <ion-icon name="calendar"></ion-icon>
+             <ion-label>{{quote.dateQuote}}</ion-label>
+            </ion-chip>
+          </h2> 
+        <h3> <strong>Estado:</strong> <ion-chip color="success"><ion-label>{{quote.status}}</ion-label></ion-chip></h3> 
+       
+        <p> <strong>Descripción:</strong>  {{quote.description}}</p>
+        
+      </ion-label>
+    </ion-item>
+
+    
+  </ion-list>
+</ion-content>

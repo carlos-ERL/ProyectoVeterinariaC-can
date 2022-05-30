@@ -3,11 +3,9 @@
 <ion-content [fullscreen]="true" >
     <ion-grid fixed>
         <ion-row class="ion-justify-content-center">
-            <img src="assets/icon/login/login-logo.png" id="img-logo" />
+            <img src="../../../assets/LogoVeterinaria.png" id="img-logo" />
         </ion-row>
-        <ion-row class="ion-justify-content-center">
-            <ion-button expand="block" color="medium">Echar un vistazo a los productos</ion-button>
-        </ion-row>
+      
         <form [formGroup]="Sesion">
             <ion-card>
                 <ion-label>Correo electrónico</ion-label>
@@ -16,7 +14,7 @@
                 <ion-label>Contraseña</ion-label>
                 <ion-input type="password" formControlName="password" placeholder="Ingrese aquí su contraseña" class="placeholder"></ion-input>
 
-                <ion-button expand="block" class="login" >Iniciar sesión</ion-button>
+                <ion-button expand="block" class="login" (click)="toUserProfile()">Iniciar sesión</ion-button>
                 <p></p>
                 <ion-button expand="block" color="light" (click)="toRegister()">Registrarse</ion-button>
                 <p></p>

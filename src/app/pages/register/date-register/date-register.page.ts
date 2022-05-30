@@ -3,6 +3,8 @@ import { DateService } from '../../../services/date.service'
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { Quote } from '../../../models/quote';
 import { MenuController, NavController, ToastController } from '@ionic/angular';
+import { ActivatedRoute } from '@angular/router';
+import { User } from 'src/app/models/user';
 
 @Component({
   selector: 'app-date-register',
@@ -13,18 +15,25 @@ export class DateRegisterPage implements OnInit {
   public myForm:FormGroup;
   public quote:Quote;
   public currentDate=new Date();
+  public user:User;
   constructor(
     private dateService:DateService, 
     private fb:FormBuilder,
-    private navController: NavController
+    private navController: NavController,
+    private activatedRoute: ActivatedRoute 
   ) { }
 
   ngOnInit() {
 
+    this.activatedRoute.queryParams.subscribe((params) => {
+      this.user = JSON.parse(params.special);
+      console.log(this.user);
+    });
+
     this.myForm= this.fb.group({
 
             idDoctor:[""],  
-            idUser:[""],    
+            idUser:[this.user.id],    
             description:[""],
             creationDateQuote:[ this.currentDate.getDate()+'-'+(this.currentDate.getMonth()+1)+'-'+this.currentDate.getFullYear()],
             status:[""],
@@ -41,8 +50,8 @@ export class DateRegisterPage implements OnInit {
   createDate(){
     this.currentDate=new Date();
     this.quote={
-      idDoctor:'1',  //AQUI SE DEBE PONER EL DOCTOR QUE ESTE AGENDANDO LA CITA
-      idUser:'1',    //AQUI EL USUARIO QUE GENERÓ LA CITA
+      //idDoctor:'1',  //AQUI SE DEBE PONER EL DOCTOR QUE ESTE AGENDANDO LA CITA
+      idUser:this.user.id,    //AQUI EL USUARIO QUE GENERÓ LA CITA
       description:this.myForm.controls.description.value,
       creationDateQuote:this.currentDate.getDate()+'-'+(this.currentDate.getMonth()+1)+'-'+this.currentDate.getFullYear(),
       status:'En espera',

@@ -15,10 +15,26 @@ export class DateService {
   getQuotes() {
     return this.firestore.collection('quotes').snapshotChanges(); 
   }
+  getQuotesInWaitList() {
+    return this.firestore
+    .collection('quotes', (ref) => ref.where('status', '==', 'En espera'))
+    .snapshotChanges();
+  }
 
   updateQuote(id,date,idDoctor){
     return this.firestore
     .doc('/quotes/' + id)
     .update({ dateQuote: date,status:'Agendada',idDoctor:idDoctor});
+  }
+
+  getQuotesByUserId(userId: string) {
+    return this.firestore
+      .collection('quotes', (ref) => ref.where('idUser', '==', userId))
+      .snapshotChanges();
+  }
+  getQuotesByVeterinarianId(veterinarianId: string) {
+    return this.firestore
+      .collection('quotes', (ref) => ref.where('idDoctor', '==', veterinarianId))
+      .snapshotChanges();
   }
 }

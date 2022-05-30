@@ -10,7 +10,7 @@
         <img src="{{quote.photo}}" alt=" " srcset="" />
         <ion-card-header>
             <ion-card-subtitle>
-                <strong>Fecha de publicación:{{quote.status}} </strong> 
+                <strong>Fecha de publicación: </strong> 
                 <ion-row>
                     <ion-chip color="danger"> 
                         <ion-icon name="calendar"></ion-icon>
@@ -43,7 +43,7 @@
 
         <ion-card-content>
             <ion-row class="ion-justify-content-center">
-                <ion-button expand="block " color="primary " id="about-button">
+                <ion-button expand="block " color="primary " id="about-button" (click)="toDateSchedule(quote.id)">
                     <ion-label>AGENDAR CITA</ion-label>
                 </ion-button>
             </ion-row>

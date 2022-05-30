@@ -1,0 +1,25 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>my-user-quotes</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <ion-list-header> Mis citas publicadas </ion-list-header>
+
+    <ion-item *ngFor="let quote of myQuotes">
+      <ion-avatar slot="start" style="width: 5pc; height:5pc;">
+        <img src="{{quote.photo}}" />
+      </ion-avatar>
+      <ion-label>
+        <h1>{{quote.petName}}</h1>
+        <h3> <strong>Estado:</strong> <ion-chip color="warning"><ion-label>{{quote.status}}</ion-label></ion-chip></h3> 
+       
+        <p> <strong>Descripción:</strong>  {{quote.description}}</p>
+      </ion-label>
+    </ion-item>
+
+    
+  </ion-list>
+</ion-content>

@@ -23,5 +23,8 @@ export class LoginPage implements OnInit {
   toRegister(){
     this.router.navigate(['/register']);
   }
+  toUserProfile(){
+    this.router.navigate(['/user-profile']);
+  }
 
 }

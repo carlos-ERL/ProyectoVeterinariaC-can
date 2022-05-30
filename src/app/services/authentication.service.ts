@@ -15,4 +15,5 @@ export class AuthenticationService {
   async loadToken(){}
   login(){}
   logout(){}
+
 }

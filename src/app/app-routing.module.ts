@@ -39,6 +39,22 @@ const routes: Routes = [
   },  {
     path: 'date-schedule',
     loadChildren: () => import('./pages/date-schedule/date-schedule.module').then( m => m.DateSchedulePageModule)
+  },
+  {
+    path: 'user-profile',
+    loadChildren: () => import('./pages/user-profile/user-profile/user-profile.module').then( m => m.UserProfilePageModule)
+  },
+  {
+    path: 'my-user-quotes',
+    loadChildren: () => import('./pages/my-user-quotes/my-user-quotes.module').then( m => m.MyUserQuotesPageModule)
+  },
+  {
+    path: 'veterinarian-profile',
+    loadChildren: () => import('./pages/veterinarian-profile/veterinarian-profile.module').then( m => m.VeterinarianProfilePageModule)
+  },
+  {
+    path: 'my-veterinarian-quotes',
+    loadChildren: () => import('./pages/my-veterinarian-quotes/my-veterinarian-quotes.module').then( m => m.MyVeterinarianQuotesPageModule)
   }
 
 

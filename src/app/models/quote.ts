@@ -1,6 +1,6 @@
 export class Quote {
     id?:string;
-    idDoctor:string;
+    idDoctor?:string;
     idUser:string;
     description:string;
     creationDateQuote:string;

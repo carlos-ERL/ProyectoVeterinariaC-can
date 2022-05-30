@@ -10,6 +10,10 @@
     <ion-row>
       <form [formGroup]="myForm">
         <ion-item>
+          <ion-label position="floating">Foto de perfil (Link) <ion-text color="danger">*</ion-text></ion-label>
+          <ion-input required formControlName="photo" type="text"></ion-input>
+        </ion-item>
+        <ion-item>
           <ion-label position="floating">Apellidos <ion-text color="danger">*</ion-text></ion-label>
           <ion-input required formControlName="lastname" type="text"></ion-input>
         </ion-item>
@@ -23,7 +27,7 @@
         </ion-item>
         <ion-item>
           <ion-label position="floating">Password <ion-text color="danger">*</ion-text></ion-label>
-          <ion-input required formControlName="Password" type="text"></ion-input>
+          <ion-input required formControlName="password" type="text"></ion-input>
         </ion-item>
        
      

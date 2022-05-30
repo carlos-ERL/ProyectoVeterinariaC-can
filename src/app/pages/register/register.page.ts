@@ -24,7 +24,8 @@ export class RegisterPage implements OnInit {
       lastname:[""],
       name:[""],
       email:[""],
-      Password:[""]
+      password:[""],
+      photo:[""]
     });
   }
 
@@ -33,7 +34,8 @@ export class RegisterPage implements OnInit {
       lastname:this.myForm.controls.lastname.value,
       name:this.myForm.controls.name.value,
       email:this.myForm.controls.email.value,
-      Password:this.myForm.controls.Password.value
+      password:this.myForm.controls.password.value,
+      photo:this.myForm.controls.photo.value
     }
     this.userService.createUser(this.user);
   }
