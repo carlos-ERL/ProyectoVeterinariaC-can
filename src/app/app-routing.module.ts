@@ -12,18 +12,13 @@ const routes: Routes = [
     canLoad:[IntroGuard,AutoLoginGuard]
   },
   {
-    path: 'tabs',
+    path: 'home',
     loadChildren: () => import('./tabs/tabs.module').then(m => m.TabsPageModule),
     canLoad:[AuthGuard]
   },
   {
     path: 'intro',
     loadChildren: () => import('./pages/intro/intro.module').then( m => m.IntroPageModule)
-  },
-  {  
-  path: '',
-  redirectTo:'/login',
-  pathMatch:'full'
   },
   {
     path: 'register',
@@ -36,7 +31,8 @@ const routes: Routes = [
   {
     path: 'date-register',
     loadChildren: () => import('./pages/register/date-register/date-register.module').then( m => m.DateRegisterPageModule)
-  },  {
+  },
+  {
     path: 'date-schedule',
     loadChildren: () => import('./pages/date-schedule/date-schedule.module').then( m => m.DateSchedulePageModule)
   },
@@ -55,9 +51,19 @@ const routes: Routes = [
   {
     path: 'my-veterinarian-quotes',
     loadChildren: () => import('./pages/my-veterinarian-quotes/my-veterinarian-quotes.module').then( m => m.MyVeterinarianQuotesPageModule)
+  },
+  {  
+    path: '',
+    redirectTo:'/login',
+    pathMatch:'full'
+  },  {
+    path: 'update-profile',
+    loadChildren: () => import('./pages/update-profile/update-profile.module').then( m => m.UpdateProfilePageModule)
+  },
+  {
+    path: 'vaccination-list',
+    loadChildren: () => import('./pages/vaccination-list/vaccination-list.module').then( m => m.VaccinationListPageModule)
   }
-
-
 
 ];
 @NgModule({
