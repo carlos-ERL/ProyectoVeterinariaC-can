@@ -7,6 +7,11 @@ $colors:(
   secondary: #B4869F,
   tertiary: #A6B1E1
 );
+.input {
+  border-radius: 10px;
+  border-color: aliceblue;
+  border-width: 1px;
+}
 :root {
   /** primary **/
   --ion-color-primary: #4E4C67;

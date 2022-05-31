@@ -2,19 +2,23 @@
 
 <ion-content [fullscreen]="true" >
     <ion-grid fixed>
-        <ion-row class="ion-justify-content-center">
-            <img src="../../../assets/LogoVeterinaria.png" id="img-logo" />
-        </ion-row>
+            <ion-row class="gradientBack ion-justify-content-center">
+                <ion-row class="ion-justify-content-center" style="z-index: 10;margin-top: 65px;">
+                    <img src="../../../assets/LogoVeterinaria.png" id="img-logo" />
+                </ion-row>
+            </ion-row>
+
       
-        <form [formGroup]="Sesion">
+        <form [formGroup]="Sesion" style="margin-top: 75px;">
             <ion-card color="red">
-                <ion-label>Correo electrónico</ion-label>
-                <ion-input type="text" formControlName="email" placeholder="Ingrese aquí su correo electrónico" class="placeholder"></ion-input>
+                <ion-row class="ion-justify-content-center">
+                    <ion-label class="primaryText">Inicie sesión con su cuenta</ion-label>
+                </ion-row>
+                <ion-input type="text" formControlName="email" placeholder="Correo Electrónico" class="input"></ion-input>
                 <p></p>
-                <ion-label>Contraseña</ion-label>
                 <ion-input type="password" formControlName="password" placeholder="Ingrese aquí su contraseña" class="placeholder"></ion-input>
 
-                <ion-button expand="block" class="login" (click)="toUserProfile()">Iniciar sesión</ion-button>
+                <ion-button expand="block" class="login" color="primary" (click)="toUserProfile()">Iniciar sesión</ion-button>
                 <p></p>
                 <ion-button expand="block" color="light" (click)="toRegister()">Registrarse</ion-button>
                 <p></p>
