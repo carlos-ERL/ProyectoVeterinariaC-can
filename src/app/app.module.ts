@@ -11,11 +11,12 @@ import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { AngularFireModule } from '@angular/fire/compat';
 import { environment } from 'src/environments/environment';
 import { AngularFireDatabaseModule } from '@angular/fire/compat/database';
+import { AngularFireAuthModule } from '@angular/fire/compat/auth';
 
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
-  imports: [AngularFireModule.initializeApp(environment.firebaseconfig),AngularFireDatabaseModule,BrowserModule, IonicModule.forRoot(), AppRoutingModule,HttpClientModule],
+  imports: [AngularFireModule.initializeApp(environment.firebaseconfig),AngularFireDatabaseModule,BrowserModule, IonicModule.forRoot(), AppRoutingModule,HttpClientModule,AngularFireAuthModule],
   providers: [AngularFirestore,{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
   bootstrap: [AppComponent],
 })
