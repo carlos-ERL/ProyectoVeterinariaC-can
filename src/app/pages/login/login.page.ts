@@ -5,6 +5,7 @@ import { Router, NavigationExtras } from '@angular/router';
 import { LoginService } from 'src/app/services/login.service';
 import { AlertsServiceService } from 'src/app/services/alerts-service.service';
 
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.page.html',
@@ -39,15 +40,20 @@ export class LoginPage implements OnInit {
     }
   }
   async login (){
+    this.alertas.openLoading("Iniciando sesión....")
     let correo = this.Sesion.controls.email.value + '';
     let password= this.Sesion.controls.password.value + '';
     const res = await this.auth.login(correo,password).catch(error => {
+      console.log(error);
+      this.alertas.closeLoading();
       this.alertas.presentToast("Usuario o contraseñas incorrectos")
     })
     if(res){
+        this.alertas.closeLoading();
         this.alertas.presentToast("Bienvenido")
+        this.router.navigate(['/home']);
     }else{
-      
+
     }
   }
 

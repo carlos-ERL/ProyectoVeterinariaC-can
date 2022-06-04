@@ -12,5 +12,8 @@ export class LoginService {
   login(mail: string, pass:string){
       return this.authFire.signInWithEmailAndPassword(mail, pass)
   }
+  logout (mail: string){
+    
+  }
   
 }

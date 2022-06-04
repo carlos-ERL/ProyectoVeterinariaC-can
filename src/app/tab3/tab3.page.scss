@@ -1,0 +1,28 @@
+
+  .itemMain {
+    //background: linear-gradient(#37157D, #985F6F);
+    background: #e6e3ee;
+    border-radius: 10px;
+    height: 60px;
+    width: 100%;
+    z-index: 5;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    padding-left: 10px;
+  }
+  .textButton {
+    height: 60px;
+    justify-content: center;
+    align-items: center;
+    color: #985F6F;
+  }
+  .iconView {
+      height: 60px;
+      justify-content: center;
+      align-items: center;
+      color: #985F6F;
+  }
+  .contentView {
+      margin-left: 30px;
+      margin-right: 30px;
+  }
