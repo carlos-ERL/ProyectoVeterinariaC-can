@@ -52,19 +52,23 @@ const routes: Routes = [
     path: 'my-veterinarian-quotes',
     loadChildren: () => import('./pages/my-veterinarian-quotes/my-veterinarian-quotes.module').then( m => m.MyVeterinarianQuotesPageModule)
   },
-  {  
-    path: '',
-    redirectTo:'/login',
-    pathMatch:'full'
-  },  {
+  {
     path: 'update-profile',
     loadChildren: () => import('./pages/update-profile/update-profile.module').then( m => m.UpdateProfilePageModule)
   },
   {
     path: 'vaccination-list',
     loadChildren: () => import('./pages/vaccination-list/vaccination-list.module').then( m => m.VaccinationListPageModule)
-  }
-
+  },
+  {
+    path: 'restore-pasword',
+    loadChildren: () => import('./pages/restore-pasword/restore-pasword.module').then( m => m.RestorePaswordPageModule)
+  },
+  {  
+    path: '',
+    redirectTo:'/login',
+    pathMatch:'full'
+  },
 ];
 @NgModule({
   imports: [

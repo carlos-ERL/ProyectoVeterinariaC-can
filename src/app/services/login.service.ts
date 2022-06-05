@@ -13,7 +13,10 @@ export class LoginService {
       return this.authFire.signInWithEmailAndPassword(mail, pass)
   }
   logout (mail: string){
-    
+    this.authFire.signOut()
+  }
+  registerNewUser (user: any){
+    return this.authFire.createUserWithEmailAndPassword(user.email,user.password);
   }
   
 }

@@ -27,6 +27,7 @@ export class AlertsServiceService {
     console.log('Loading dismissed!');
   }
   async closeLoading() {
-    await this.loading.dismiss();
-  }
+     await this.loading.dismiss();
+     await this.loading.onDidDismiss();  
+    }
 }

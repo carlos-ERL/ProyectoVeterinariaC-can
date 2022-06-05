@@ -10,7 +10,7 @@ export class UserService {
   constructor(private firestore:AngularFirestore) { } 
 
   createUser(user:User){
-    return this.firestore.collection('users').add(user);
+    return this.firestore.collection('users').doc(user.id).set(user);
     
   }
 

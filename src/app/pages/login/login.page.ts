@@ -47,21 +47,21 @@ export class LoginPage implements OnInit {
       console.log(error);
       this.alertas.closeLoading();
       this.alertas.presentToast("Usuario o contraseñas incorrectos")
+      
     })
     if(res){
         this.alertas.closeLoading();
         this.alertas.presentToast("Bienvenido")
         this.router.navigate(['/home']);
     }else{
-
     }
   }
 
   toRegister(){
     this.router.navigate(['/register']);
   }
-  toUserProfile(){
-    this.router.navigate(['/home']);
+  goToRestore(){
+    this.router.navigate(['/restore-pasword']);
   }
 
 
