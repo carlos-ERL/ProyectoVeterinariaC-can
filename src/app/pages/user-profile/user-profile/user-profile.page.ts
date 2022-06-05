@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { NavigationExtras, Router } from '@angular/router';
 import { User } from 'src/app/models/user';
 import { UserService } from 'src/app/services/user.service';
+import { LoginService } from 'src/app/services/login.service';
+import { Storage } from '@capacitor/storage';
+import { LOGUED_KEY } from 'src/app/guards/auth.guard';
 
 @Component({
   selector: 'app-user-profile',
@@ -15,7 +18,8 @@ export class UserProfilePage implements OnInit {
     name:'',
     email:'',
     password:'',
-    photo:''
+    photo:'',
+    role:''
   };
   constructor(private userService:UserService,private router:Router) {
   
@@ -53,6 +57,10 @@ export class UserProfilePage implements OnInit {
       },
     };
     this.router.navigate(['/my-user-quotes'], extras);
+  }
+  async loguout(){
+    const isUserLogued = await Storage.get({key: LOGUED_KEY});
+
   }
 
 }

@@ -2,8 +2,9 @@ import { Injectable } from '@angular/core';
 import { CanLoad, Route, UrlSegment, UrlTree } from '@angular/router';
 import { Observable } from 'rxjs';
 
+export const LOGUED_KEY = 'IsLogued'
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root' 
 })
 export class AuthGuard implements CanLoad {
   canLoad(

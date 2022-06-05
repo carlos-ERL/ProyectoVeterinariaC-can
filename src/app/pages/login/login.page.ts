@@ -4,6 +4,9 @@ import { MenuController, NavController, ToastController } from '@ionic/angular';
 import { Router, NavigationExtras } from '@angular/router';
 import { LoginService } from 'src/app/services/login.service';
 import { AlertsServiceService } from 'src/app/services/alerts-service.service';
+import { Storage } from '@capacitor/storage';
+import { LOGUED_KEY } from 'src/app/guards/auth.guard';
+import { UserService } from '../../services/user.service';
 
 
 @Component({
@@ -22,7 +25,8 @@ export class LoginPage implements OnInit {
     private navController: NavController,
     private router: Router,
     private auth: LoginService, 
-    private alertas:AlertsServiceService) { }
+    private alertas:AlertsServiceService,
+    private userService:UserService ) { }
 
   ngOnInit() {
     this.Sesion = this.fb.group({
@@ -40,21 +44,42 @@ export class LoginPage implements OnInit {
     }
   }
   async login (){
-    this.alertas.openLoading("Iniciando sesión....")
+    //this.alertas.openLoading("Iniciando sesión....")
     let correo = this.Sesion.controls.email.value + '';
     let password= this.Sesion.controls.password.value + '';
     const res = await this.auth.login(correo,password).catch(error => {
       console.log(error);
-      this.alertas.closeLoading();
+      //this.alertas.closeLoading();
       this.alertas.presentToast("Usuario o contraseñas incorrectos")
       
     })
     if(res){
-        this.alertas.closeLoading();
+        //this.alertas.closeLoading();
         this.alertas.presentToast("Bienvenido")
+        this.saveInLocal(res.user.uid);
         this.router.navigate(['/home']);
     }else{
     }
+  }
+  async saveInLocal(id){
+    this.userService.getUserById(id.toString()).get().then(async(snapShot)  => {
+      const user = {
+        id:snapShot.id,
+        lastname:snapShot.get('lastname'),
+        name:snapShot.get('name'),
+        email:snapShot.get('email'),
+        password:snapShot.get('password'),
+        photo:snapShot.get('photo'),
+        role: snapShot.get('role')
+      }
+      let stringUser = JSON.stringify(user);
+      await Storage.set({key: 'user_data',value:stringUser});
+      if(user.role.toSring() == 'user'){
+        await Storage.set({key: 'isVeterinarian',value:'false'});
+      }else{
+        await Storage.set({key: 'isVeterinarian',value:'true'});
+      }
+    })
   }
 
   toRegister(){

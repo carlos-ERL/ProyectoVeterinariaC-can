@@ -16,6 +16,7 @@ export class RegisterPage implements OnInit {
   public myForm:FormGroup;
   public validateMessages :object;
   public user:User;
+  public show: boolean;
   constructor(
     private userService:UserService, 
     private fb:FormBuilder,
@@ -31,7 +32,8 @@ export class RegisterPage implements OnInit {
       lastname:["",Validators.required],
       email:["",Validators.required],
       password:["",Validators.required],
-      photo:[""]
+      photo:[""],
+      role:[""]
     });
     this.validateMessages = {
       'name':[
@@ -57,7 +59,8 @@ export class RegisterPage implements OnInit {
       name:this.myForm.controls.name.value,
       email:this.myForm.controls.email.value,
       password:this.myForm.controls.password.value,
-      photo:this.myForm.controls.photo.value
+      photo:this.myForm.controls.photo.value,
+      role: this.show == true ? 'veterinarian':'user'
     }
 
     const res = await this.auth.registerNewUser(this.user).catch(error => {
@@ -67,6 +70,7 @@ export class RegisterPage implements OnInit {
     if(res){
         const userID = res.user.uid;
         this.user.id= userID;
+        this.user.password = '';
         await this.userService.createUser(this.user).catch(error => {
           console.log(error);
           this.alertas.closeLoading();

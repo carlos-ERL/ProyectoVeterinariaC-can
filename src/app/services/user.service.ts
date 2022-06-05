@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { User } from '../models/user';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
+import { Storage } from '@capacitor/storage';
 
 @Injectable({
   providedIn: 'root'
@@ -21,4 +22,5 @@ export class UserService {
   getUserById(id: string) {
     return this.firestore.collection('users').doc(id).ref;
   }
+
 }

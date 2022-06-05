@@ -33,8 +33,11 @@
       <ion-label position="floating">Contraseña <ion-text color="danger">*</ion-text></ion-label>
       <ion-input type="password" required formControlName="password" ></ion-input>
     </ion-item>
-    
-    <ion-button block color="primary" type="submit" [disabled]="myForm.invalid" (click)="createUser()">
+    <ion-item>
+      <ion-label>Soy un veterinario</ion-label>
+      <ion-toggle formControlName="role"  slot="start" [(ngModel)]="show"></ion-toggle>
+    </ion-item> 
+    <ion-button type="submit" [disabled]="myForm.invalid" class="ion-color buttonStyle" [style.background-color]="'#985F6F'"  expand="block" (click)="createUser()">
       Registrarse
     </ion-button>
 
