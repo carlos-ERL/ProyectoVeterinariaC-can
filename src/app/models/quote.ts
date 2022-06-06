@@ -12,4 +12,5 @@ export class Quote {
     particularSign:string;
     size:string;
     userID?:string;
+    responsable?:string
 }

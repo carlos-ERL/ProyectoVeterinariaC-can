@@ -26,6 +26,11 @@ export class DateService {
     .doc('/quotes/' + id)
     .update({ dateQuote: date,status:'Agendada',idDoctor:idDoctor});
   }
+  asignResponsable(id,responsable){
+    return this.firestore
+    .doc('/quotes/' + id)
+    .update({ responsable: responsable});
+  }
 
   getQuotesByUserId(userId) {
     return this.firestore

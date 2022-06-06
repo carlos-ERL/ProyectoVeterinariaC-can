@@ -23,6 +23,14 @@ export class Tab1Page {
     this.router.navigate(['/my-user-quotes']);
   }
 
+  toWaitList(): void {
+    this.router.navigate(['/waitlist']);
+  }
+
+  toAllQuotes() { 
+    this.router.navigate(['/my-veterinarian-quotes']);
+  }
+
   async getRole(){
     const userString = await Storage.get({key: 'user_data'});
     const user = JSON.parse(userString.value)

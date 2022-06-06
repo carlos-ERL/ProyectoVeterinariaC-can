@@ -89,7 +89,8 @@ export class DateRegisterPage implements OnInit {
       size:this.myForm.controls.size.value,
       creationDateQuote:this.currentDate.getDate()+'-'+(this.currentDate.getMonth()+1)+'-'+this.currentDate.getFullYear(),
       status:'En espera',
-      userID: parseUser.id
+      userID: parseUser.id,
+      responsable:''
     }
     console.log(this.quote);
     this.dateService.createQuote(this.quote).then(data =>{

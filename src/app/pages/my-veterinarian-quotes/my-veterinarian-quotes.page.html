@@ -1,14 +1,16 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>my-veterinarian-quotes</ion-title>
+  <ion-toolbar class="ion-color" [style.background-color]="'#985F6F'" >
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons> 
+    <ion-title>Todas las citas</ion-title>
   </ion-toolbar>
+
 </ion-header>
 
 <ion-content>
-  <ion-list>
-    <ion-list-header> Mis citas agendadas </ion-list-header>
-
-    <ion-item *ngFor="let quote of myQuotes">
+  <ion-list> 
+    <ion-item *ngFor="let quote of myQuotes" class="borderedStyle">
       <ion-avatar slot="start" style="width: 3pc; height:3pc;">
         <img src="{{quote.photo}}" />
       </ion-avatar>
@@ -16,7 +18,7 @@
       
         <h1>{{quote.petName}}</h1>
         <h2>
-          <strong>Fecha:</strong>
+          <strong>Fecha:</strong> 
            <ion-chip color="success">
             <ion-icon name="calendar"></ion-icon>
              <ion-label>{{quote.dateQuote}}</ion-label>
@@ -32,3 +34,6 @@
     
   </ion-list>
 </ion-content>
+<ion-footer>
+  <ion-button class="ion-color buttonStyle" [style.background-color]="'#985F6F'"  expand="block" (click)="goToScanner()">Actualizar el status de una cita</ion-button>
+</ion-footer>

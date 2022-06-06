@@ -1,8 +1,12 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>Citas en espera</ion-title>
-  </ion-toolbar>
-</ion-header>
+    <ion-toolbar class="ion-color" [style.background-color]="'#985F6F'" >
+      <ion-buttons slot="start">
+        <ion-back-button></ion-back-button>
+      </ion-buttons>
+      <ion-title>Citas en espera</ion-title>
+    </ion-toolbar>
+  
+  </ion-header>
 
 <ion-content>
   <ion-list >
@@ -39,11 +43,11 @@
                 </ion-row>
                 
             </ion-row>
-        </ion-card-header>
+        </ion-card-header> 
 
         <ion-card-content>
             <ion-row class="ion-justify-content-center">
-                <ion-button expand="block " color="primary " id="about-button" (click)="toDateSchedule(quote.id)">
+                <ion-button expand="block " color="primary" *disabled="quote.responsable != ''" id="about-button" (click)="toDateSchedule(quote)">
                     <ion-label>AGENDAR CITA</ion-label>
                 </ion-button>
             </ion-row>
