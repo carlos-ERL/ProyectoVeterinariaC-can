@@ -57,7 +57,7 @@ export class LoginPage implements OnInit {
         //this.alertas.closeLoading();
         this.alertas.presentToast("Bienvenido")
         this.saveInLocal(res.user.uid);
-        this.router.navigate(['/home']);
+        this.router.navigate(['/home/inicio']);
     }else{
     }
   }
