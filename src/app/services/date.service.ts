@@ -27,9 +27,9 @@ export class DateService {
     .update({ dateQuote: date,status:'Agendada',idDoctor:idDoctor});
   }
 
-  getQuotesByUserId(userId: string) {
+  getQuotesByUserId(userId) {
     return this.firestore
-      .collection('quotes', (ref) => ref.where('idUser', '==', userId))
+      .collection('quotes', (ref) => ref.where('userID', '==', userId))
       .snapshotChanges();
   }
   getQuotesByVeterinarianId(veterinarianId: string) {

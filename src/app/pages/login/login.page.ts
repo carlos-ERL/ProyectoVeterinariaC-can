@@ -7,7 +7,7 @@ import { AlertsServiceService } from 'src/app/services/alerts-service.service';
 import { Storage } from '@capacitor/storage';
 import { UserService } from '../../services/user.service';
 
-
+ 
 @Component({
   selector: 'app-login',
   templateUrl: './login.page.html',
@@ -25,7 +25,10 @@ export class LoginPage implements OnInit {
     private router: Router,
     private auth: LoginService, 
     private alertas:AlertsServiceService,
-    private userService:UserService ) { }
+    private userService:UserService ) { 
+      this.validateUser()
+      
+    }
 
   ngOnInit() {
     this.Sesion = this.fb.group({
@@ -59,6 +62,11 @@ export class LoginPage implements OnInit {
         this.router.navigate(['/home/inicio']);
     }else{
     }
+  }
+  async validateUser(){
+    const userString = await Storage.get({key: 'user_data'});
+    console.log(userString);
+    if(userString.value == null){}else{this.router.navigate(['/home/inicio']);}
   }
   async saveInLocal(id){
     this.userService.getUserById(id.toString()).get().then(async(snapShot)  => {

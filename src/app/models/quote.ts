@@ -1,7 +1,5 @@
 export class Quote {
     id?:string;
-    idDoctor?:string;
-    idUser:string;
     description:string;
     creationDateQuote:string;
     dateQuote?:string;
@@ -13,4 +11,5 @@ export class Quote {
     race:string;
     particularSign:string;
     size:string;
+    userID?:string;
 }

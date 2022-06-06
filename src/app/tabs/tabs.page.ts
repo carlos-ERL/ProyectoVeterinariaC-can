@@ -12,7 +12,7 @@ export class TabsPage {
   constructor(private userService:UserService) {
     setTimeout(() => {
       this.getRole();    
-    }, 1000);
+    }, 500);
   }
 
   async getRole(){

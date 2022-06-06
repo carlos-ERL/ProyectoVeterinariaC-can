@@ -12,6 +12,7 @@ import { AngularFireModule } from '@angular/fire/compat';
 import { environment } from 'src/environments/environment';
 import { AngularFireDatabaseModule } from '@angular/fire/compat/database';
 import { AngularFireAuthModule } from '@angular/fire/compat/auth';
+import { Camera, CameraOptions } from '@awesome-cordova-plugins/camera/ngx';
 
 @NgModule({
   declarations: [AppComponent],
@@ -24,7 +25,7 @@ import { AngularFireAuthModule } from '@angular/fire/compat/auth';
   HttpClientModule,
   AngularFireAuthModule,
 ],
-  providers: [AngularFirestore,{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
+  providers: [Camera,AngularFirestore,{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
