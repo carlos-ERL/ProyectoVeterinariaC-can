@@ -15,6 +15,7 @@ export class MyUserQuotesPage implements OnInit {
   constructor(private quoteService:DateService,private activatedRoute: ActivatedRoute) { }
  
   ngOnInit() {
+    /*
     this.activatedRoute.queryParams.subscribe((params) => {
       this.user = JSON.parse(params.special);
       console.log(this.user);
@@ -41,9 +42,9 @@ export class MyUserQuotesPage implements OnInit {
                 size:quote.payload.doc.get('size')
               }as Quote);
             });
+          });    
+    */
 
-           
-          });
   }
 
 }

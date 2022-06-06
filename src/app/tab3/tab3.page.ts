@@ -10,15 +10,4 @@ import { IonAccordionGroup } from '@ionic/angular';
 export class Tab3Page {
   @ViewChild(IonAccordionGroup, { static: true }) accordionGroup: IonAccordionGroup;
   constructor(private alertas:AlertsServiceService) {}
-  openText(){
-    this.alertas.presentToast("Prueba 1 de Botones")
-  }
-  logAccordionValue() {
-    console.log(this.accordionGroup.value);
-  }
-  
-  closeAccordion() {
-    this.accordionGroup.value = undefined;
-  } 
-
 }

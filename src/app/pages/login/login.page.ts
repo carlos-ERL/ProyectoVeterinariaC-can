@@ -5,7 +5,6 @@ import { Router, NavigationExtras } from '@angular/router';
 import { LoginService } from 'src/app/services/login.service';
 import { AlertsServiceService } from 'src/app/services/alerts-service.service';
 import { Storage } from '@capacitor/storage';
-import { LOGUED_KEY } from 'src/app/guards/auth.guard';
 import { UserService } from '../../services/user.service';
 
 
@@ -74,11 +73,6 @@ export class LoginPage implements OnInit {
       }
       let stringUser = JSON.stringify(user);
       await Storage.set({key: 'user_data',value:stringUser});
-      if(user.role == 'user'){
-        await Storage.set({key: 'isVeterinarian',value:'false'});
-      }else{
-        await Storage.set({key: 'isVeterinarian',value:'true'});
-      }
     })
   }
 

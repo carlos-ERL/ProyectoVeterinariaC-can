@@ -47,12 +47,12 @@
                 </ion-col>
             </ion-item>
             <section>
-            <ion-button class="ion-color buttonStyle" [style.background-color]="'#e6e3ee'" expand="block"><ion-icon name="bandage-outline"></ion-icon>Vacunas de mi mascota</ion-button>
-            <ion-button (click)="goToUpdate()" (click)="goToUpdate()" class="ion-color buttonStyle" [style.background-color]="'#e6e3ee'" expand="block"> <ion-icon name="pencil-outline"></ion-icon>Actualizar mi perfil</ion-button>
-            <ion-button class="ion-color buttonStyle" [style.background-color]="'#4E4C67'" expand="block">Cerrar sesión <ion-icon name="log-out-outline"></ion-icon></ion-button>
+            <ion-button (click)="goToVaccination()" *ngIf="vacinationVisible"  class="ion-color buttonStyle" [style.background-color]="'#e6e3ee'" expand="block"><ion-icon name="bandage-outline"></ion-icon>Vacunas de mi mascota</ion-button>
+            <ion-button (click)="goToUpdate()" class="ion-color buttonStyle" [style.background-color]="'#e6e3ee'" expand="block"> <ion-icon name="pencil-outline"></ion-icon>Actualizar mi perfil</ion-button>
+            <ion-button (click)="logOut()"class="ion-color buttonStyle" [style.background-color]="'#4E4C67'" expand="block">Cerrar sesión <ion-icon name="log-out-outline"></ion-icon></ion-button>
             </section>
     
-        </ion-card>          
+        </ion-card>           
 
     </ion-row>
 

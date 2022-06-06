@@ -1,12 +1,16 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>date-register</ion-title>
-  </ion-toolbar>
-</ion-header>
-
+    <ion-toolbar class="ion-color" [style.background-color]="'#985F6F'" >
+      <ion-buttons slot="start">
+        <ion-back-button></ion-back-button>
+      </ion-buttons>
+      <ion-title>Agendar Cita</ion-title>
+    </ion-toolbar>
+  
+  </ion-header>
+ 
 <ion-content>
   <form [formGroup]="myForm">
-    <ion-card>
+    <ion-card> 
         <p></p>
         <ion-row class="image-message-header">
             <!-- <img class="image-message" src="{{product.img}}" alt="" srcset="" /> -->
@@ -24,7 +28,7 @@
                 </ion-row>
             </ion-card-subtitle>
             <ion-card-title>
-                <strong>Cita con un DOGTOR:</strong>
+                <strong>Cita con un DOCTOR:</strong>
             </ion-card-title>
         </ion-card-header>
         <ion-card-content>

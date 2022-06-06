@@ -25,15 +25,11 @@ export class DateRegisterPage implements OnInit {
 
   ngOnInit() {
 
-    this.activatedRoute.queryParams.subscribe((params) => {
-      this.user = JSON.parse(params.special);
-      console.log(this.user);
-    });
 
     this.myForm= this.fb.group({
 
             idDoctor:[""],  
-            idUser:[this.user.id],    
+            idUser:[''],    
             description:[""],
             creationDateQuote:[ this.currentDate.getDate()+'-'+(this.currentDate.getMonth()+1)+'-'+this.currentDate.getFullYear()],
             status:[""],
@@ -51,7 +47,7 @@ export class DateRegisterPage implements OnInit {
     this.currentDate=new Date();
     this.quote={
       //idDoctor:'1',  //AQUI SE DEBE PONER EL DOCTOR QUE ESTE AGENDANDO LA CITA
-      idUser:this.user.id,    //AQUI EL USUARIO QUE GENERÓ LA CITA
+      idUser:"",    //AQUI EL USUARIO QUE GENERÓ LA CITA
       description:this.myForm.controls.description.value,
       creationDateQuote:this.currentDate.getDate()+'-'+(this.currentDate.getMonth()+1)+'-'+this.currentDate.getFullYear(),
       status:'En espera',

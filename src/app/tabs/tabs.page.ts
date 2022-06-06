@@ -10,7 +10,9 @@ import { Storage } from '@capacitor/storage';
 export class TabsPage {
   public  show:boolean;
   constructor(private userService:UserService) {
-  this.getRole()
+    setTimeout(() => {
+      this.getRole();    
+    }, 1000);
   }
 
   async getRole(){

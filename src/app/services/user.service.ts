@@ -12,7 +12,6 @@ export class UserService {
 
   createUser(user:User){
     return this.firestore.collection('users').doc(user.id).set(user);
-    
   }
 
   getUsers() {
@@ -23,4 +22,10 @@ export class UserService {
     return this.firestore.collection('users').doc(id).ref;
   }
 
+  updateUser(user){
+    return this.firestore.collection('users').doc(user.id).set(user);
+  }
+  getPersonalVacinationList(id){
+    return this.firestore.collection('vaccination', ref => ref.where('userID', '==', id)).snapshotChanges();
+  } 
 }

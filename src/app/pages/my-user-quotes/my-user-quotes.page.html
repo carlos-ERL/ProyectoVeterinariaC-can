@@ -1,7 +1,11 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>my-user-quotes</ion-title>
+  <ion-toolbar class="ion-color" [style.background-color]="'#985F6F'" >
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>Mis citas</ion-title>
   </ion-toolbar>
+
 </ion-header>
 
 <ion-content>
@@ -12,7 +16,7 @@
       <ion-avatar slot="start" style="width: 5pc; height:5pc;">
         <img src="{{quote.photo}}" />
       </ion-avatar>
-      <ion-label>
+      <ion-label> 
         <h1>{{quote.petName}}</h1>
         <h3> <strong>Estado:</strong> <ion-chip color="warning"><ion-label>{{quote.status}}</ion-label></ion-chip></h3> 
        
