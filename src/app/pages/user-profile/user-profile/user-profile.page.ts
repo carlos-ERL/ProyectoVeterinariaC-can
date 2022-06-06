@@ -22,13 +22,20 @@ export class UserProfilePage implements OnInit {
     role:''
   };
   constructor(private userService:UserService,private router:Router) {
-  
+    this.getUserdata();
 
    }
 
   ngOnInit() {
 
-    this.userService.getUserById('sHbID1bK1wj8xF5YZUQh').get().then((user) => {
+  }
+
+  async getUserdata(){
+    
+    const userString = await Storage.get({key: 'user_data'});
+    const parseUser = JSON.parse(userString.value)
+
+    this.userService.getUserById(parseUser.id).get().then((user) => {
       this.user = {
         id:user.id,
         lastname:user.get('lastname'),
@@ -37,9 +44,15 @@ export class UserProfilePage implements OnInit {
         password:user.get('password'),
         photo:user.get('photo')
       } as User;
+      console.log(this.user);
     })
   }
+  doRefresh(event) {
 
+    setTimeout(() => {
+      event.target.complete();
+    }, 2000);
+  }
 
   toDateRegister(): void {
     const extras: NavigationExtras = {
@@ -48,6 +61,9 @@ export class UserProfilePage implements OnInit {
       },
     };
     this.router.navigate(['/date-register'], extras);
+  }
+  goToUpdate(){
+    this.router.navigate(['/update-profile']);
   }
 
   toMyQuotes(): void {
@@ -59,7 +75,6 @@ export class UserProfilePage implements OnInit {
     this.router.navigate(['/my-user-quotes'], extras);
   }
   async loguout(){
-    const isUserLogued = await Storage.get({key: LOGUED_KEY});
 
   }
 

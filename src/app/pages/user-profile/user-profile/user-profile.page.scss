@@ -29,3 +29,14 @@ ion-icon {
 ion-item {
     --padding-start: 1pc;
 }
+.gradientBack {
+    background: linear-gradient(#4E4C67, #A6B1E1);
+    height: 200px;
+    z-index: 0;
+  }
+  .buttonStyle {
+    border-radius: 25px;
+    height: 50px;
+    margin-top: 15px;
+    color: #9a6373;
+  }

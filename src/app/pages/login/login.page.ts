@@ -74,7 +74,7 @@ export class LoginPage implements OnInit {
       }
       let stringUser = JSON.stringify(user);
       await Storage.set({key: 'user_data',value:stringUser});
-      if(user.role.toSring() == 'user'){
+      if(user.role == 'user'){
         await Storage.set({key: 'isVeterinarian',value:'false'});
       }else{
         await Storage.set({key: 'isVeterinarian',value:'true'});

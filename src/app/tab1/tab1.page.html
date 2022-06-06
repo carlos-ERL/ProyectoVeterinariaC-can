@@ -1,17 +1,35 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Tab 1
-    </ion-title>
-  </ion-toolbar>
-</ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Tab 1</ion-title>
-    </ion-toolbar>
-  </ion-header>
 
-  <app-explore-container name="Tab 1 page"></app-explore-container>
+<ion-content [fullscreen]="true" >
+  <ion-row size="12" class="ion-justify-content-center">
+    <ion-row class="ion-justify-content-center">
+      <ion-label class="primaryText">¿En que te podemos ayudar?</ion-label>
+    </ion-row>
+    <ion-row class="ion-justify-content-center ">
+      <ion-col>
+          <ion-button expand="block" color="primary" (click)="toMyQuotes()">
+          Mis citas
+          </ion-button>
+      </ion-col>
+      <ion-col size="12">
+          <ion-button expand="block" color="secondary" (click)="toDateRegister()">
+          Generar cita
+          </ion-button>
+      </ion-col>
+    </ion-row>
+    <ion-row class="ion-justify-content-center " *ngIf="isVeterinarian" >
+      <ion-col>
+          <ion-button expand="block" color="primary" (click)="toMyQuotes()">
+          Mis citas pendientes
+          </ion-button>
+      </ion-col>
+      <ion-col size="12">
+          <ion-button expand="block" color="secondary" (click)="toDateRegister()">
+          Todas las citas 
+          </ion-button>
+      </ion-col>
+      
+    </ion-row>    
+  </ion-row>
+
 </ion-content>

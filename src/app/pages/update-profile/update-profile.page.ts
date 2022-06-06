@@ -29,7 +29,7 @@ export class UpdateProfilePage implements OnInit {
     });
   }
 
-  UpdateInfo(){
+  updateUser(){
 
   }
 
